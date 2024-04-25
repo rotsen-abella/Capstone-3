@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import AppNavBar from './components/AppNavBar';
+import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Profile from './pages/Profile';
@@ -21,7 +22,7 @@ function App() {
 
   useEffect(() => {
     // console.log(user)
-    fetch(`${process.env.REACT_APP_API_URL}/users/login`, {
+    fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -52,7 +53,7 @@ function App() {
             <Container fluid>
                 <AppNavBar />
                 <Routes>
-                    
+                    <Route path="/" element={<Register />}/>
                     <Route path="/login" element={<Login />}/>
                     <Route path="/logout" element={<Logout />}/>
                     <Route path="/profile" element={<Profile />} />

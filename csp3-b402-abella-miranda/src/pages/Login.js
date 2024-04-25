@@ -109,8 +109,8 @@ export default function Login() {
     		<Navigate to="/profile"/>
     	:
     	<Form onSubmit={(e) => authenticate(e)}>
-    	    <h1 className="my-5 text-center">Login</h1>
-    	    <Form.Group controlId="userEmail">
+    	    <h1 className="my-5 text-center p-3">Login</h1>
+    	    <Form.Group controlId="userEmail" className='pb-3'>
     	        <Form.Label>Email address</Form.Label>
     	        <Form.Control 
     	            type="email" 
@@ -121,7 +121,7 @@ export default function Login() {
     	        />
     	    </Form.Group>
 
-    	    <Form.Group controlId="password">
+    	    <Form.Group controlId="password" className='pb-3'>
     	        <Form.Label>Password</Form.Label>
     	        <Form.Control 
     	            type="password" 
