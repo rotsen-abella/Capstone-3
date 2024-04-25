@@ -85,7 +85,7 @@ export default function Login() {
 
 	const retrieveUserDetails = (token) => {
 
-		fetch('${process.env.REACT_APP_API_URL}/users/details', {
+		fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
