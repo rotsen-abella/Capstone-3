@@ -6,7 +6,7 @@ export default function Home() {
 	const data = {
 	    title: "THE SHOP",
 	    content: "Shop to your heart's content!",
-	    destination: "/home",
+	    destination: "/products",
 	    label: "Shop now!"
 	}
 

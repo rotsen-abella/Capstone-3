@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import AppNavBar from './components/AppNavBar';
 import Home from './pages/Home';
+import Products from './pages/Products';
+import ProductView from './pages/ProductView';
+import CreateProduct from './pages/CreateProduct';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -55,6 +58,9 @@ function App() {
                 <AppNavBar />
                 <Routes>
                     <Route path="/home" element={<Home />}/>
+                    <Route path="/products" element={<Products />}/>
+                    <Route path="/products/:productId" element={<ProductView />}/>
+                    <Route path="/products/createProduct" element={<CreateProduct />} />
                     <Route path="/" element={<Register />}/>
                     <Route path="/login" element={<Login />}/>
                     <Route path="/logout" element={<Logout />}/>
