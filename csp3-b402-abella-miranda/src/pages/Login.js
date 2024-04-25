@@ -29,7 +29,7 @@ export default function Login() {
 
 	    
 	    e.preventDefault();
-	    fetch(`${process.env.REACT_APP_API_URL}/users/login`,{
+	    fetch(`${process.env.REACT_APP_API_BASE_URL}/users/login`,{
 	    method: 'POST',
 	    headers: {
 	        "Content-Type": "application/json"
@@ -57,7 +57,7 @@ export default function Login() {
 	    	Swal.fire({
 	    		title: "Login Successful",
 	    		icon: "success",
-	    		text: "Welcome to Zuitt!"
+	    		text: "Welcome to THE SHOP!"
 	    	})
 
 	    } else if (data.error === "No Email Found") {
@@ -85,7 +85,7 @@ export default function Login() {
 
 	const retrieveUserDetails = (token) => {
 
-		fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/users/details`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
@@ -106,7 +106,7 @@ export default function Login() {
          
     	(user.id !== null) 
     	?
-    		<Navigate to="/profile"/>
+    		<Navigate to="/home"/>
     	:
     	<Form onSubmit={(e) => authenticate(e)}>
     	    <h1 className="my-5 text-center p-3">Login</h1>

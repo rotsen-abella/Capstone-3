@@ -16,7 +16,7 @@ export default function AppNavBar(){
 		        <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		        <Navbar.Collapse id="basic-navbar-nav">
 		        	<Nav className="ms-auto">
-				        <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+				        <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
 				        
 
 				        {(user.id !== null)
