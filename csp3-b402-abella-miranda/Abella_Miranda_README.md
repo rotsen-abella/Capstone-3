@@ -14,13 +14,27 @@ User Credentials:
 
 	Dummy Customer:
 		email: customer@gmail.com
-		password: 1234customer
+		password: customer1234
 
 Features:
 	
 	Features by Rotsen Abella
 		
+		Login
+		AppNavBar
+		UserView
+		Retrieve Single Product
+		Update Product Information
+		Create Product
+		
 
 
 	Features by Peter Miranda
 		
+		Register
+		Home page
+		AdminView
+		Retrieve All Products
+		Deactivate/Activate Products
+		
+	
