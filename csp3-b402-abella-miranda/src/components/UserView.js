@@ -3,10 +3,9 @@ import ProductCard from './ProductCard';
 
 
 
+
 export default function UserView({ productsData }) {
-    // console.log({coursesData})
-    // const { coursesData } = coursesData;
-    // console.log(coursesData)
+    
     const [ products, setProducts ] = useState([])
 
     useEffect(() => {
@@ -22,7 +21,7 @@ export default function UserView({ productsData }) {
             }
         })
 
-        //set the courses state to the result of our map function, to bring our returned course component outside of the scope of our useEffect where our return statement below can see.
+        
         setProducts(productsArr)
 
     }, [productsData])
