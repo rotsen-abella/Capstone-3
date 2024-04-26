@@ -29,8 +29,7 @@ export default function FeaturedProducts(){
 
 				featured.push(
 					<PreviewProducts data={data.products[numbers[i]]} key={data.products [numbers[i]]._id} breakPoint={2}/>
-				)
-			}
+				)}
 			setPreviews(featured);
 
 		})

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
+import SearchProduct from './SearchProducts';
 
 
 
@@ -28,7 +29,7 @@ export default function UserView({ productsData }) {
 
     return(
         <>
-           
+           <SearchProduct />
             { products }
         </>
         )
