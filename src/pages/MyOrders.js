@@ -1,8 +1,8 @@
-// Orders.js
-
 import React, { useState, useEffect, useContext } from 'react';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
+import ProductNamesFetcher from '../components/ProductNamesFetcher';
+import { Card } from 'react-bootstrap';
 
 export default function MyOrders() {
     const { user } = useContext(UserContext);
@@ -39,33 +39,29 @@ export default function MyOrders() {
     };
 
     return (
-        <div className="container">
-            <h1 className="mt-4">My Orders</h1>
+        <div>
+            <h1 className="mb-4">My Orders</h1>
             {loading ? (
-                <p>Loading...</p>
-            ) : orders && orders.length > 0 ? (
+                <p>Loading orders...</p>
+            ) : (
                 <div>
                     {orders.map(order => (
-                        <div key={order._id} className="mb-4">
-                            <h4>Order ID: {order._id}</h4>
-                            <p>Total Price: {order.totalPrice}</p>
-                            <h5>Products:</h5>
-                            <ul>
-                                {order.productsOrdered.map(product => (
-                                    <li key={product.productId}>
-                                        <p>Product Name: {product.name}</p>
-                                        <p>Quantity: {product.quantity}</p>
-                                        <p>Price: {product.subtotal}</p>
-                                        
-                                        
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <Card key={order._id} className="mb-4">
+                            <Card.Body>
+                                <Card.Title>Order ID: {order._id}</Card.Title>
+                                <Card.Text>Total Price: PHP {order.totalPrice}</Card.Text>
+                                <Card.Text>Products:</Card.Text>
+                                <div className="list-unstyled">
+                                    {order.productsOrdered.map(product => (
+                                        <li key={product.productId} style={{listStyleType: 'none'}}>
+                                            <h5><ProductNamesFetcher productIds={[product.productId]} /></h5>  Quantity: {product.quantity} | Subtotal: PHP  {product.subtotal}
+                                        </li>
+                                    ))}
+                                </div>
+                            </Card.Body>
+                        </Card>
                     ))}
                 </div>
-            ) : (
-                <p>No orders found.</p>
             )}
         </div>
     );
