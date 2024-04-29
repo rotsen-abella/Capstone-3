@@ -11,8 +11,10 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Profile from './pages/Profile';
+
+import Cart from './pages/Cart';
 import { UserProvider } from './UserContext';
-import MyCart from './pages/MyCart';
+
 
 function App() {
   const [ user, setUser ] = useState({
@@ -66,7 +68,9 @@ function App() {
                     <Route path="/login" element={<Login />}/>
                     <Route path="/logout" element={<Logout />}/>
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="/get-cart" element={<MyCart />} />
+                    <Route path="/get-cart" element={<Cart />} />
+                    <Route path="/orders" element={<MyOrders/>} />
+                    
                     
                 </Routes>
             </Container>
