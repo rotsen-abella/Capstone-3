@@ -30,6 +30,9 @@ Features:
 
 		Stretch Goals:
 			View User Details (Profile) with update password feature
+			Add to Cart (With Remove Item feature)
+			Cart Page
+			Orders Page
 		
 
 
@@ -40,10 +43,12 @@ Features:
 			Admin Dashboard(AdminView)
 			Retrieve All Products
 			Deactivate/Activate Products
+			Checkout Functionality
 		
 		Stretch Goals:
 			Home page
 			Featured Products
+			Cart Page
 		
 		
 		

@@ -101,7 +101,7 @@ export default function Register() {
     }
 
     return (
-        <Container className="my-5">
+        <Container className="my-5 border border-secondary bg-light pb-5 rounded">
             <Row className="justify-content-center">
                 <Col xs={12} md={6}>
                     {user.id !== null && <Home />}

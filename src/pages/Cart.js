@@ -135,7 +135,7 @@ export default function Cart() {
                 <>
                     <Table striped bordered hover>
                         <thead>
-                            <tr>
+                            <tr className='text-center'>
                                 <th>#</th>
                                 <th>Product Name</th>
                                 <th>Quantity</th>
@@ -148,9 +148,9 @@ export default function Cart() {
                                 <tr key={index}>
                                     <td>{index + 1}</td>
                                     <td>{productDetails[item.productId] || 'Loading...'}</td>
-                                    <td>{item.quantity}</td>
-                                    <td>{item.subtotal}</td>
-                                    <td>
+                                    <td className='text-end'>{item.quantity}</td>
+                                    <td className='text-end'>{item.subtotal}</td>
+                                    <td className='text-center px-0'>
                                         <Button variant="danger" onClick={() => handleRemoveItem(item.productId)}>
                                             Remove
                                         </Button>
@@ -159,11 +159,11 @@ export default function Cart() {
                             ))}
                         </tbody>
                     </Table>
-                    <p>Total Price: {cart.totalPrice}</p>
+                    <h4 className='pb-4'>Total Price: {cart.totalPrice}</h4>
                     <Link to="/orders" className="btn btn-primary" onClick={handleCheckout}>Checkout</Link>
                 </>
             ) : (
-                <p>No items in your cart.</p>
+                <h4>No items in your cart.</h4>
             )}
         </Container>
     );

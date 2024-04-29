@@ -8,7 +8,7 @@ export default function ProductCard ({productProp}) {
 
 
 	return (
-		<Card id="productComponent">
+		<Card id="productComponent" className='col-md-8 mb-3 mx-auto bg-dark text-light border border-dark'>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Subtitle>Description:</Card.Subtitle>

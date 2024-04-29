@@ -10,14 +10,14 @@ export default function AppNavBar(){
     const { user } = useContext(UserContext);
     
     return(
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark"  expand="lg">
 		  <Container fluid>
-		  <Navbar.Brand as={Link} to="/">SHOP</Navbar.Brand>
+		  <Navbar.Brand as={Link} to="/home" className='text-light'> THE SHOP</Navbar.Brand>
 		        <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		        <Navbar.Collapse id="basic-navbar-nav">
 		        	<Nav className="ms-auto">
-				        <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
-						<Nav.Link as={NavLink} to="/products">Products</Nav.Link>
+				        <Nav.Link as={NavLink} to="/home" className='text-light'>Home</Nav.Link>
+						<Nav.Link as={NavLink} to="/products" className='text-light'>Products</Nav.Link>
 				        
 
 				        {(user.id !== null)
@@ -25,19 +25,19 @@ export default function AppNavBar(){
 					        	user.isAdmin 
 					        	?
 					        	<>
-					        		<Nav.Link as={NavLink} to="/logout">Logout</Nav.Link>
+					        		<Nav.Link as={NavLink} to="/logout" className='text-light'>Logout</Nav.Link>
 					        	</>
 					        	:
 					        	<>
-									<Nav.Link as={NavLink} to="/get-cart">Cart</Nav.Link>
-									<Nav.Link as={NavLink} to="/orders">Order</Nav.Link>
-						        	<Nav.Link as={NavLink} to="/profile">Profile</Nav.Link>
-						        	<Nav.Link as={NavLink} to="/logout">Logout</Nav.Link>
+									<Nav.Link as={NavLink} to="/get-cart" className='text-light'>Cart</Nav.Link>
+									<Nav.Link as={NavLink} to="/orders" className='text-light'>Orders</Nav.Link>
+						        	<Nav.Link as={NavLink} to="/profile" className='text-light'>Profile</Nav.Link>
+						        	<Nav.Link as={NavLink} to="/logout" className='text-light'>Logout</Nav.Link>
 					        	</>
 				        	:
 				        	<>
-				        		<Nav.Link as={NavLink} to="/login">Login</Nav.Link>
-				        		<Nav.Link as={NavLink} to="/">Register</Nav.Link>
+				        		<Nav.Link as={NavLink} to="/login" className='text-light'>Login</Nav.Link>
+				        		<Nav.Link as={NavLink} to="/" className='text-light'>Register</Nav.Link>
 				        	</>
 
 				        }

@@ -8,10 +8,10 @@ export default function Banner({data}) {
 
     return (
         <Row>
-            <Col className="p-5 text-center">
-                <h1>{title}</h1>
-                <p>{content}</p>
-                <Link className="btn btn-primary" to={destination}>{label}</Link>
+            <Col className="p-5 text-center col-8 mx-auto">
+                <h1 className='p-3 text-center'>{title}</h1>
+                <p className='p-5'>{content}</p>
+                <Link className="btn btn-dark" to={destination}>{label}</Link>
             </Col>
         </Row>
     )

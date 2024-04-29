@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { CardGroup } from 'react-bootstrap';
+import { CardGroup, Container } from 'react-bootstrap';
 import PreviewProducts from './PreviewProducts';
 
 export default function FeaturedProducts(){
@@ -38,8 +38,8 @@ export default function FeaturedProducts(){
 
 	return (
 		<>
-			<h2 className="text-center">Featured Products</h2>
-			<CardGroup className="justify-content-center">
+			<h2 className="text-center pb-3">Featured Products</h2>
+			<CardGroup className="justify-content-center text-justify">
 				{previews}
 			</CardGroup>
 		</>

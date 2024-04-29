@@ -81,9 +81,9 @@ export default function Login() {
     }
 
     return (
-        <Container className="my-5">
+        <Container className="my-5 bg-light text-dark py-5 border border-secondary rounded">
             <Row className="justify-content-center">
-                <Col xs={12} md={6}>
+                <Col xs={12} md={4}>
                     {user.id !== null && <Navigate to="/products" />}
                     <Form onSubmit={(e) => authenticate(e)}>
                         <h1 className="my-5 text-center p-3">Login</h1>

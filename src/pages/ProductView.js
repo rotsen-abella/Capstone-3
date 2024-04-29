@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Container, Card, Row, Col, Button, Form } from 'react-bootstrap';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
 
-export default function ProductView(){
+export default function ProductView() {
     const { user } = useContext(UserContext);
     const { productId } = useParams();
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0);
-    const [quantity, setQuantity] = useState(1); // Initialize quantity state with 1
+    const [quantity, setQuantity] = useState(1); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}`)
@@ -23,62 +24,16 @@ export default function ProductView(){
             .catch(error => {
                 console.error('Error fetching product:', error);
             });
-
-
-		const addToCart = () => {
-        if (quantity <= 0) {
-            Swal.fire({
-                title: "Invalid Quantity",
-                icon: 'warning',
-                text: "Quantity cannot be 0. Please add quantity"
-            });
-        } else {
-            fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/add-to-cart`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify({
-                    cartItems: [
-                        {
-                            
-                            productId: productId,
-                            quantity: quantity
-                        }
-                    ]
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.message === 'Item added to cart successfully') {
-                    Swal.fire({
-                        title: "Successfully Added to cart!",
-                        icon: 'success',
-                        text: "You have successfully added this item to your cart."
-                    });
-                } else {
-                    Swal.fire({
-                        title: "Something went wrong",
-                        icon: 'error',
-                        text: "Please try again."
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error adding item to cart:', error);
-                Swal.fire({
-                    title: "Error",
-                    icon: 'error',
-                    text: "Failed to add item to cart. Please try again."
-                });
-            });
-        }
-    };
     }, [productId]);
 
     const addToCart = () => {
-        if (quantity <= 0) {
+        if (user.isAdmin) {
+            Swal.fire({
+                title: "Admins cannot add items to the cart",
+                icon: 'warning',
+                text: "Please log in as a regular user to add items to the cart"
+            });
+        } else if (quantity <= 0) {
             Swal.fire({
                 title: "Invalid Quantity",
                 icon: 'warning',
@@ -108,6 +63,9 @@ export default function ProductView(){
                         icon: 'success',
                         text: "You have successfully added this item to your cart."
                     });
+
+                    navigate("/products");
+                    
                 } else {
                     Swal.fire({
                         title: "Something went wrong",
@@ -129,8 +87,8 @@ export default function ProductView(){
 
     return (
         <Container className="my-5">
-            <Row>
-                <Col md={{ span: 8, offset: 2 }}>
+            <Row className="justify-content-center">
+                <Col md={8}>
                     <Card>
                         <Card.Body>
                             <Card.Title className="text-center mb-4">{name}</Card.Title>
@@ -150,7 +108,10 @@ export default function ProductView(){
                             </div>
                             <div className="text-center mt-4">
                                 {user.id !== null
-                                    ? <Button variant="success" onClick={addToCart}>Add to Cart</Button>
+                                    ? <>
+                                        <Button variant="success" onClick={addToCart}>Add to Cart</Button>
+                                        
+                                    </>
                                     : <Link to="/login" className="btn btn-danger">Log in to Add to Cart</Link>
                                 }
                             </div>
