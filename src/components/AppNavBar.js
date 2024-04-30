@@ -12,11 +12,11 @@ export default function AppNavBar(){
     return(
         <Navbar bg="dark"  expand="lg">
 		  <Container fluid>
-		  <Navbar.Brand as={Link} to="/home" className='text-light'> THE SHOP</Navbar.Brand>
+		  <Navbar.Brand as={Link} to="/" className='text-light'> THE SHOP</Navbar.Brand>
 		        <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		        <Navbar.Collapse id="basic-navbar-nav">
 		        	<Nav className="ms-auto">
-				        <Nav.Link as={NavLink} to="/home" className='text-light'>Home</Nav.Link>
+				        <Nav.Link as={NavLink} to="/" className='text-light'>Home</Nav.Link>
 						<Nav.Link as={NavLink} to="/products" className='text-light'>Products</Nav.Link>
 				        
 
@@ -25,7 +25,9 @@ export default function AppNavBar(){
 					        	user.isAdmin 
 					        	?
 					        	<>
+									<Nav.Link as={NavLink} to="/orders" className='text-light'>All Orders</Nav.Link>
 					        		<Nav.Link as={NavLink} to="/logout" className='text-light'>Logout</Nav.Link>
+									
 					        	</>
 					        	:
 					        	<>
@@ -37,7 +39,7 @@ export default function AppNavBar(){
 				        	:
 				        	<>
 				        		<Nav.Link as={NavLink} to="/login" className='text-light'>Login</Nav.Link>
-				        		<Nav.Link as={NavLink} to="/" className='text-light'>Register</Nav.Link>
+				        		<Nav.Link as={NavLink} to="/register" className='text-light'>Register</Nav.Link>
 				        	</>
 
 				        }

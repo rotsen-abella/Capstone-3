@@ -1,4 +1,4 @@
-Capstone 3: E-Commerce API
+Capstone 3: E-Commerce APP
 
 Application Name: E-Commerce MERN App
 
@@ -23,7 +23,7 @@ Features:
 		Minimum Requirements:
 			Login
 			AppNavBar
-			Products Catalog Page (UserView)
+			Products Catalog Page (UserView: Retrieve All Active Products)
 			Retrieve Single Product
 			Update Product Information
 			Create Product
@@ -31,8 +31,8 @@ Features:
 		Stretch Goals:
 			View User Details (Profile) with update password feature
 			Add to Cart (With Remove Item feature)
-			Cart Page
-			Orders Page
+			Cart View
+			Orders View (Get All Orders for Admin only)
 		
 
 
@@ -48,7 +48,7 @@ Features:
 		Stretch Goals:
 			Home page
 			Featured Products
-			Cart Page
+			Cart View
 		
 		
 		

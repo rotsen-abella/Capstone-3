@@ -84,7 +84,7 @@ export default function Login() {
         <Container className="my-5 bg-light text-dark py-5 border border-secondary rounded">
             <Row className="justify-content-center">
                 <Col xs={12} md={4}>
-                    {user.id !== null && <Navigate to="/products" />}
+                    {user.id !== null && <Navigate to="/" />}
                     <Form onSubmit={(e) => authenticate(e)}>
                         <h1 className="my-5 text-center p-3">Login</h1>
                         <Form.Group controlId="userEmail" className='pb-3'>

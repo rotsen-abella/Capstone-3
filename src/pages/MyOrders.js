@@ -10,11 +10,40 @@ export default function MyOrders() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchOrders();
+        if (user.isAdmin) {
+            fetchAllOrders();
+        } else {
+            fetchMyOrders();
+        }
     }, []);
 
-    const fetchOrders = () => {
+    const fetchMyOrders = () => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/my-orders`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.orders && data.orders.length > 0) {
+                    setOrders(data.orders);
+                }
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching orders:', error);
+                setLoading(false);
+                // Display error message using Swal
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Failed to fetch orders. Please try again later.',
+                });
+            });
+    };
+
+    const fetchAllOrders = () => {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/all-orders`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -40,7 +69,7 @@ export default function MyOrders() {
 
     return (
         <div>
-            <h1 className="mb-4">My Orders</h1>
+            <h1 className="my-4">Orders</h1>
             {loading ? (
                 <p>Loading orders...</p>
             ) : (

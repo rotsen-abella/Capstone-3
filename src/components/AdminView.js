@@ -40,7 +40,8 @@ export default function AdminView({ productsData, fetchData }) {
 
             <Row className='justify-content-center'>
                 <Col className='col-auto'>
-                    <Link className="btn btn-success mb-5" to={`/products/createProduct`}>Add New Product</Link>
+                    <Link className="btn btn-success mb-5 mx-2" to={`/products/createProduct`}>Add New Product</Link>
+                    <Link className="btn btn-dark mb-5 mx-2" to={`/orders`}>All Orders</Link>
                 </Col>
             </Row>
 

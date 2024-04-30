@@ -60,11 +60,11 @@ function App() {
             <Container fluid>
                 <AppNavBar />
                 <Routes>
-                    <Route path="/home" element={<Home />}/>
+                    <Route path="/" element={<Home />}/>
                     <Route path="/products" element={<Products />}/>
                     <Route path="/products/:productId" element={<ProductView />}/>
                     <Route path="/products/createProduct" element={<CreateProduct />} />
-                    <Route path="/" element={<Register />}/>
+                    <Route path="/register" element={<Register />}/>
                     <Route path="/login" element={<Login />}/>
                     <Route path="/logout" element={<Logout />}/>
                     <Route path="/profile" element={<Profile />} />
