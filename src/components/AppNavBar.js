@@ -14,7 +14,7 @@ export default function AppNavBar(){
 		  <Container fluid>
 		  <Navbar.Brand as={Link} to="/" className='text-light'> THE SHOP</Navbar.Brand>
 		        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-		        <Navbar.Collapse id="basic-navbar-nav">
+		        <Navbar.Collapse id="basic-navbar-nav text-light">
 		        	<Nav className="ms-auto">
 				        <Nav.Link as={NavLink} to="/" className='text-light'>Home</Nav.Link>
 						<Nav.Link as={NavLink} to="/products" className='text-light'>Products</Nav.Link>
@@ -24,7 +24,8 @@ export default function AppNavBar(){
 				        	?
 					        	user.isAdmin 
 					        	?
-					        	<>
+					        	<>	
+									
 									<Nav.Link as={NavLink} to="/orders" className='text-light'>All Orders</Nav.Link>
 					        		<Nav.Link as={NavLink} to="/logout" className='text-light'>Logout</Nav.Link>
 									

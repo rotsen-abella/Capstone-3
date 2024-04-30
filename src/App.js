@@ -16,6 +16,7 @@ import Cart from './pages/Cart';
 import { UserProvider } from './UserContext';
 
 
+
 function App() {
   const [ user, setUser ] = useState({
     id: null,
