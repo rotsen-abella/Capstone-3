@@ -93,7 +93,7 @@ export default function ProductView() {
                         <Card.Body>
                             <Card.Title className="text-center mb-4">{name}</Card.Title>
                             <Card.Text>{description}</Card.Text>
-                            <Card.Text className="fw-bold">Price: ${price}</Card.Text>
+                            <Card.Text className="fw-bold">Price: PHP {price}</Card.Text>
                             <hr />
                             <div className="d-flex align-items-center justify-content-center">
                                 <Button variant="outline-dark" onClick={() => setQuantity(prevQuantity => Math.max(prevQuantity - 1, 0))}>-</Button>
