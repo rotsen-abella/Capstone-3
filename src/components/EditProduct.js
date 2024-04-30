@@ -8,7 +8,6 @@ export default function EditProduct({product, fetchData}){
 	const [ name, setName ] = useState("");
 	const [ description, setDescription ] = useState("");
 	const [ price, setPrice ] = useState(0);
-	// state for edit course modal to open/close
 	const [ showEdit, setShowEdit ] = useState(false);
 
     const openEdit = (productId) => {

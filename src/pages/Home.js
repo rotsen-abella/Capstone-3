@@ -14,12 +14,12 @@ export default function Home() {
         <Container fluid>
             <Row>
                 <Col>
-                    <Banner data={data} />
+                    <Banner data={data}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <FeaturedProducts />
+                    <FeaturedProducts/>
                 </Col>
             </Row>
         </Container>

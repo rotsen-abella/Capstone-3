@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Container, Table, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import UserContext from '../UserContext';
+// import UserContext from '../UserContext';
 
 export default function Cart() {
-    const { user } = useContext(UserContext);
+    // const { user } = useContext(UserContext);
     const [cart, setCart] = useState([]);
     const [loading, setLoading] = useState(true);
     const [productDetails, setProductDetails] = useState({});
@@ -23,7 +23,7 @@ export default function Cart() {
             .then(res => res.json())
             .then(data => {
                 if (data.orders && data.orders.length > 0) {
-                    setCart(data.orders[0]); // Assuming only one cart per user
+                    setCart(data.orders[0]); 
                 }
                 setLoading(false);
             })
@@ -140,7 +140,7 @@ export default function Cart() {
                                 <th>Product Name</th>
                                 <th>Quantity</th>
                                 <th>Subtotal</th>
-                                <th>Action</th> {/* New column for Remove Item button */}
+                                <th>Action</th> 
                             </tr>
                         </thead>
                         <tbody>

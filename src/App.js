@@ -23,7 +23,7 @@ function App() {
     isAdmin: null
   })
 
-  // Function for clearing the localStorage
+
   const unsetUser = () => {
     localStorage.clear();
   }

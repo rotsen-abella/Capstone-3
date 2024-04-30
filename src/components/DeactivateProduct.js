@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 export default function DeactivateProduct({ productId, isActive, fetchData }) {
-  	console.log(productId)
+  	// console.log(productId)
   const deactivateToggle = () => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}/archive`, {
       method: 'PATCH',

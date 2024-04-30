@@ -104,7 +104,7 @@ export default function Register() {
         <Container className="my-5 border border-secondary bg-light pb-5 rounded">
             <Row className="justify-content-center">
                 <Col xs={12} md={6}>
-                    {user.id !== null && <Home />}
+                    {user.id !== null && <Home/>}
                     <Form onSubmit={(e) => registerUser(e)}>
                         <h1 className="my-5 text-center">Register</h1>
                         <Form.Group controlId="firstName" className="mb-3">

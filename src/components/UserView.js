@@ -29,7 +29,7 @@ export default function UserView({ productsData }) {
 
     return(
         <>
-           <SearchProduct />
+           <SearchProduct/>
             { products }
         </>
         )

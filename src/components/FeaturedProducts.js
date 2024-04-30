@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { CardGroup, Container } from 'react-bootstrap';
+import { CardGroup } from 'react-bootstrap';
 import PreviewProducts from './PreviewProducts';
 
 export default function FeaturedProducts(){
