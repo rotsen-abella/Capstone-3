@@ -13,6 +13,7 @@ import Logout from './pages/Logout';
 import Profile from './pages/Profile';
 import MyOrders from './pages/MyOrders';
 import Cart from './pages/Cart';
+import ChangePassword from './pages/ChangePassword';
 import { UserProvider } from './UserContext';
 
 
@@ -71,6 +72,7 @@ function App() {
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/get-cart" element={<Cart />} />
                     <Route path="/orders" element={<MyOrders/>} />
+                    <Route path="/change-password" element={<ChangePassword/>} />
                     
                     
                 </Routes>

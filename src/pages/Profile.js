@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Button, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import UserContext from '../UserContext';
-import UpdatePassword from '../components/UpdatePassword';
+
 
 export default function Profile() {
     const { user } = useContext(UserContext);
@@ -41,9 +41,9 @@ export default function Profile() {
             {user.id === null ? (
                 <Navigate to="/login" />
             ) : (
-                <>
+                <Container className='bg-dark my-5 border rounded'>
                     <Row>
-                        <Col md={12} className="p-5 bg-primary text-white">
+                        <Col md={12} className="p-5 text-white">
                             <h1 className="my-5">Profile</h1>
                             <h2 className="mt-3">{`${details.firstName} ${details.lastName}`}</h2>
                             <hr />
@@ -52,18 +52,12 @@ export default function Profile() {
                                 <li>Email: {details.email}</li>
                                 <li>Mobile No: {details.mobileNo}</li>
                             </ul>
+                            <Link to="/change-password">
+                                <Button variant="secondary">Update Password</Button>
+                            </Link>
                         </Col>
                     </Row>
-                    <Row className="p-4 m-4 ">
-                        <Col md={12}>
-                            <Card>
-                                <Card.Body>
-                                    <UpdatePassword />
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>
-                </>
+                </Container>
             )}
         </>
     );

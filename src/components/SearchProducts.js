@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 import ProductCard from './ProductCard';
 
 const SearchProduct = () => {
-const [searchNameQuery, setSearchNameQuery] = useState('');
-const [searchNameResults, setSearchNameResults] = useState([]);
-
+  const [searchNameQuery, setSearchNameQuery] = useState('');
+  const [searchNameResults, setSearchNameResults] = useState([]);
 
   const handleSearchByName = async () => {
     try {
@@ -23,39 +23,46 @@ const [searchNameResults, setSearchNameResults] = useState([]);
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent form submission
+      handleSearchByName();
+    }
+  };
+
+  const handleClearResults = () => {
+    setSearchNameResults([]);
+  };
+
   return (
-    <div>
-      <h2>Search</h2>
-      <hr></hr>
-      
-      
+    <div>    
       <div>
-        <h4>Search by Name</h4>
-        <div className="form-group pb-4">
-          <label htmlFor="name">Product Name:</label>
-          <input
+      <h2 className='py-2'>Search Products</h2>
+        <Form.Group className="pb-4" controlId="productName">
+          <Form.Control
             type="text"
-            id="productName"
-            className="form-control"
             value={searchNameQuery}
-            onChange={event => setSearchNameQuery(event.target.value)}
+            onChange={(event) => setSearchNameQuery(event.target.value)}
+            onKeyDown={handleKeyDown} // Execute search on Enter key down
+            style={{ maxWidth: '200px' }}
           />
-        </div>
-        <button className="btn btn-primary" onClick={handleSearchByName}>
+        </Form.Group>
+        <Button variant="dark" onClick={handleSearchByName}>
           Search
-        </button>
+        </Button>
         {searchNameResults.length > 0 && (
           <>
-            <h4>Search Results by Name:</h4>
+            <h4>Search Results:</h4>
             <ul>
               {searchNameResults.map(product => (
                 <ProductCard productProp={product} key={product._id}/>
               ))}
             </ul>
+            <Button variant="secondary" onClick={handleClearResults}>Clear Results</Button>
           </>
         )}
       </div>
-      <hr></hr>
+      <hr />
     </div>
   );  
 };

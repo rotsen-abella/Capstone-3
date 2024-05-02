@@ -89,14 +89,14 @@ export default function ProductView() {
         <Container className="my-5">
             <Row className="justify-content-center">
                 <Col md={8}>
-                    <Card>
+                    <Card className='bg-dark text-light'>
                         <Card.Body>
                             <Card.Title className="text-center mb-4">{name}</Card.Title>
                             <Card.Text>{description}</Card.Text>
                             <Card.Text className="fw-bold">Price: PHP {price}</Card.Text>
                             <hr />
                             <div className="d-flex align-items-center justify-content-center">
-                                <Button variant="outline-dark" onClick={() => setQuantity(prevQuantity => Math.max(prevQuantity - 1, 0))}>-</Button>
+                                <Button variant="secondary" onClick={() => setQuantity(prevQuantity => Math.max(prevQuantity - 1, 0))}>-</Button>
                                 <Form.Control
                                     className="mx-2 text-center"
                                     type="number"
@@ -104,7 +104,7 @@ export default function ProductView() {
                                     onChange={e => setQuantity(parseInt(e.target.value))}
                                     style={{width: '80px'}}
                                 />
-                                <Button variant="outline-dark" onClick={() => setQuantity(prevQuantity => prevQuantity + 1)}>+</Button>
+                                <Button variant="secondary" onClick={() => setQuantity(prevQuantity => prevQuantity + 1)}>+</Button>
                             </div>
                             <div className="text-center mt-4">
                                 {user.id !== null

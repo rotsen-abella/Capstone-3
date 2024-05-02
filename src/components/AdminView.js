@@ -45,16 +45,16 @@ export default function AdminView({ productsData, fetchData }) {
                 </Col>
             </Row>
 
-            {/* <Button variant="success" className='mb-5 d-block mx-auto'>Add New Product</Button> */}
+            
             
             <Table striped bordered hover responsive>
                 <thead>
                     <tr className="text-center">
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Availability</th>
-                        <th>Actions</th>
+                        <th className='bg-dark text-light'>Name</th>
+                        <th className='bg-dark text-light'>Description</th>
+                        <th className='bg-dark text-light'>Price</th>
+                        <th className='bg-dark text-light'>Availability</th>
+                        <th className='bg-dark text-light'>Actions</th>
                     </tr>
                 </thead>
 

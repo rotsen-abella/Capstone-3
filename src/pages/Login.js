@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
 
@@ -9,6 +9,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isActive, setIsActive] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         setIsActive(email !== '' && password !== '');
@@ -100,25 +101,31 @@ export default function Login() {
 
                         <Form.Group controlId="password" className='pb-3'>
                             <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
+                            <div className="input-group">
+                                <Form.Control
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <Button variant="dark text-light" onClick={() => setShowPassword(!showPassword)}>
+                                    {showPassword ? "Hide" : "Show"}
+                                </Button>
+                            </div>
                         </Form.Group>
 
                         { isActive ?
-                            <Button variant="primary" type="submit" id="submitBtn">
-                                Submit
+                            <Button variant="dark" type="submit" id="submitBtn">
+                                Login
                             </Button>
                             :
-                            <Button variant="danger" type="submit" id="submitBtn" disabled>
-                                Submit
+                            <Button variant="secondary" type="submit" id="submitBtn" disabled>
+                                Login
                             </Button>
                         }
                     </Form>
+                    <p className="mt-3 text-center">Don't have an account? <Link to="/register">Register</Link></p>
                 </Col>
             </Row>
         </Container>

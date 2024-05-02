@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Swal from 'sweetalert2';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import UserContext from '../UserContext';
 import Home from "./Home";
 
@@ -15,6 +16,8 @@ export default function Register() {
     const [password, setPassword] = useState("");
     const [verifyPassword, setVerifyPassword] = useState("");
     const [isActive, setIsActive] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showVerifyPassword, setShowVerifyPassword] = useState(false);
 
     useEffect(() => {
         setIsActive(
@@ -149,30 +152,41 @@ export default function Register() {
                         </Form.Group>
                         <Form.Group controlId="password" className="mb-3">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="Enter Password"
-                                required
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
-                            />
+                            <div className="input-group">
+                                <Form.Control
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <Button variant="dark text-light" onClick={() => setShowPassword(!showPassword)}>
+                                    {showPassword ? "Hide" : "Show"}
+                                </Button>
+                            </div>
                         </Form.Group>
                         <Form.Group controlId="confirmPassword" className="mb-3">
                             <Form.Label>Confirm Password</Form.Label>
+                            <div className="input-group">
                             <Form.Control
-                                type="password"
+                                type={showVerifyPassword ? "text" : "password"}
                                 placeholder="Verify Password"
                                 required
                                 value={verifyPassword}
                                 onChange={e => setVerifyPassword(e.target.value)}
                             />
+                            <Button variant="dark text-light" onClick={() => setShowVerifyPassword(!showVerifyPassword)}>
+                                    {showVerifyPassword ? "Hide" : "Show"}
+                            </Button>
+                            </div>
                         </Form.Group>
                         {isActive ?
-                            <Button variant="primary" type="submit">Submit</Button>
+                            <Button variant="dark" type="submit">Register</Button>
                             :
-                            <Button variant="danger" type="submit" disabled>Submit</Button>
+                            <Button variant="secondary" type="submit" disabled>Register</Button>
                         }
                     </Form>
+                    <p className="mt-3 text-center">Already have an account? <Link to="/login">Login</Link></p>
                 </Col>
             </Row>
         </Container>

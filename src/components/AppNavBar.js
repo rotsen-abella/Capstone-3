@@ -10,11 +10,11 @@ export default function AppNavBar(){
     const { user } = useContext(UserContext);
     
     return(
-        <Navbar bg="dark"  expand="lg">
+        <Navbar bg="dark"   data-bs-theme= "dark" expand="lg">
 		  <Container fluid>
-		  <Navbar.Brand as={Link} to="/" className='text-light'> THE SHOP</Navbar.Brand>
-		        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-		        <Navbar.Collapse id="basic-navbar-nav text-light">
+		  <Navbar.Brand as={Link} to="/">THE SHOP</Navbar.Brand>
+		        <Navbar.Toggle aria-controls="basic-navbar-nav"  />
+		        <Navbar.Collapse id="basic-navbar-nav" className='text-light'>
 		        	<Nav className="ms-auto">
 				        <Nav.Link as={NavLink} to="/" className='text-light'>Home</Nav.Link>
 						<Nav.Link as={NavLink} to="/products" className='text-light'>Products</Nav.Link>
@@ -25,7 +25,7 @@ export default function AppNavBar(){
 					        	user.isAdmin 
 					        	?
 					        	<>	
-									
+									<Nav.Link as={NavLink} to="/profile" className='text-light'>Profile</Nav.Link>
 									<Nav.Link as={NavLink} to="/orders" className='text-light'>All Orders</Nav.Link>
 					        		<Nav.Link as={NavLink} to="/logout" className='text-light'>Logout</Nav.Link>
 									

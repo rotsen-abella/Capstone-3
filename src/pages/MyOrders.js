@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
 import ProductNamesFetcher from '../components/ProductNamesFetcher';
-import { Card } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 export default function MyOrders() {
     const { user } = useContext(UserContext);
@@ -15,7 +15,7 @@ export default function MyOrders() {
         } else {
             fetchMyOrders();
         }
-    }, []);
+    }, [user.isAdmin]);
 
     const fetchMyOrders = () => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/my-orders`, {
@@ -73,25 +73,35 @@ export default function MyOrders() {
             {loading ? (
                 <p>Loading orders...</p>
             ) : (
-                <div>
-                    {orders.map(order => (
-                        <Card key={order._id} className="mb-4">
-                            <Card.Body>
-                                <Card.Title>Order ID: {order._id}</Card.Title>
-                                <Card.Text>Total Price: PHP {order.totalPrice}</Card.Text>
-                                <Card.Text>Products:</Card.Text>
-                                <div className="list-unstyled">
+                <Table striped bordered hover responsive>
+                    <thead>
+                        <tr>
+                            <th className='bg-dark text-light'>Order ID</th>
+                            <th className='bg-dark text-light'>Total Price</th>
+                            <th className='bg-dark text-light'>Products</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map(order => (
+                            <tr key={order._id}>
+                                <td>{order._id}</td>
+                                <td>PHP {order.totalPrice}</td>
+                                <td>
                                     {order.productsOrdered.map(product => (
-                                        <li key={product.productId} style={{listStyleType: 'none'}}>
-                                            <h5><ProductNamesFetcher productIds={[product.productId]} /></h5>  Quantity: {product.quantity} | Subtotal: PHP  {product.subtotal}
-                                        </li>
+                                        <div key={product.productId} style={{ listStyleType: 'none' }}>
+                                            <h5><ProductNamesFetcher productIds={[product.productId]} /></h5>
+                                            <p>Quantity: {product.quantity}</p>
+                                            <p>Subtotal: PHP {product.subtotal}</p>
+                                            <hr/>
+                                        </div>
                                     ))}
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    ))}
-                </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
             )}
         </div>
     );
 }
+

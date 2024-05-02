@@ -133,14 +133,14 @@ export default function Cart() {
                 <p>Loading...</p>
             ) : cart && cart.cartItems && cart.cartItems.length > 0 ? (
                 <>
-                    <Table striped bordered hover>
+                    <Table striped bordered hover responsive>
                         <thead>
                             <tr className='text-center'>
-                                <th>#</th>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Subtotal</th>
-                                <th>Action</th> 
+                                <th className='bg-dark text-light'>#</th>
+                                <th className='bg-dark text-light'>Product Name</th>
+                                <th className='bg-dark text-light'>Quantity</th>
+                                <th className='bg-dark text-light'>Subtotal</th>
+                                <th className='bg-dark text-light'>Action</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -160,7 +160,7 @@ export default function Cart() {
                         </tbody>
                     </Table>
                     <h4 className='pb-4'>Total Price: {cart.totalPrice}</h4>
-                    <Link to="/orders" className="btn btn-primary" onClick={handleCheckout}>Checkout</Link>
+                    <Link to="/orders" className="btn btn-dark" onClick={handleCheckout}>Checkout</Link>
                 </>
             ) : (
                 <h4>No items in your cart.</h4>

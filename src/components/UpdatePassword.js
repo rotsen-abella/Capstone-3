@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 
 const UpdatePassword = () => {
   const [password, setPassword] = useState('');
@@ -15,8 +16,8 @@ const UpdatePassword = () => {
 
     try {
       const token = localStorage.getItem('token'); 
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/users/update-password`, {
-        method: 'POST',
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/update-password`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -39,41 +40,35 @@ const UpdatePassword = () => {
   };
 
   return (
-    <div className="container">
+    <Container className='p-5'>
       <h2>Update Password</h2>
-      <form onSubmit={handleResetPassword}>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            New Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="confirmPassword" className="form-label">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
+      <Form onSubmit={handleResetPassword}>
+        <Form.Group className="mb-3" controlId="password">
+          <Form.Label>New Password</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="confirmPassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </InputGroup>
+        </Form.Group>
         {message && <div className="alert alert-danger">{message}</div>}
-        <button type="submit" className="btn btn-primary">
-          Reset Password
-        </button>
-      </form>
-    </div>
+        <Button type="submit" variant="primary">Reset Password</Button>
+      </Form>
+    </Container>
   );
 };
 
