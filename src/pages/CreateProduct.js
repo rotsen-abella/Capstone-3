@@ -74,7 +74,7 @@ export default function CreateProduct() {
                                     <Form.Label>Price:</Form.Label>
                                     <Form.Control type="number" placeholder="Enter Price" required value={price} onChange={e => setPrice(e.target.value)} />
                                 </Form.Group>
-                                <Button variant="primary" type="submit" className="my-5">Submit</Button>
+                                <Button variant="dark" type="submit" className="my-5">Submit</Button>
                             </Form>
                         </Col>
                     </Row>

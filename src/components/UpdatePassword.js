@@ -66,7 +66,7 @@ const UpdatePassword = () => {
           </InputGroup>
         </Form.Group>
         {message && <div className="alert alert-danger">{message}</div>}
-        <Button type="submit" variant="primary">Reset Password</Button>
+        <Button type="submit" variant="dark">Reset Password</Button>
       </Form>
     </Container>
   );
